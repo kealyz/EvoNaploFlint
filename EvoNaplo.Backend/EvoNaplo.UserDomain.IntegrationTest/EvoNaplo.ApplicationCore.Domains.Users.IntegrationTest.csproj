@@ -21,9 +21,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EvoNaplo.Backend\EvoNaplo.Backend.csproj" />
+    <ProjectReference Include="..\EvoNaplo.ApplicationCore.Domains.Users\EvoNaplo.ApplicationCore.Domains.Users.csproj" />
     <ProjectReference Include="..\EvoNaplo.TestHelper\EvoNaplo.TestHelper.csproj" />
-    <ProjectReference Include="..\EvoNaplo.UserDomain\EvoNaplo.UserDomain.csproj" />
   </ItemGroup>
 
 </Project>

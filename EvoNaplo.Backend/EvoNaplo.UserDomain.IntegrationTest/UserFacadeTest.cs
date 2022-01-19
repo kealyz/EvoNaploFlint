@@ -1,19 +1,21 @@
-using EvoNaplo.Common.DataAccessLayer;
-using EvoNaplo.Common.DomainFacades;
-using EvoNaplo.Common.Models.DTO;
-using EvoNaplo.Common.Models.Entities;
+using EvoNaplo.Infrastructure.DomainFacades;
+using EvoNaplo.Infrastructure.Models.DTO;
+using EvoNaplo.Infrastructure.Models.Entities;
 using EvoNaplo.TestHelper;
-using EvoNaplo.UserDomain.Facades;
-using EvoNaplo.UserDomain.Models;
-using EvoNaplo.UserDomain.Services;
+using EvoNaplo.ApplicationCore.Domains.Users.Models;
 using Microsoft.Extensions.Logging;
 using Moq;
 using NUnit.Framework;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using EvoNaplo.ApplicationCore.Domains.Users.Services;
+using EvoNaplo.ApplicationCore.Domains.Users.Facades;
+using EvoNaplo.Infrastructure.Helpers;
+using EvoNaplo.Infrastructure.DataAccess.Entities;
+using EvoNaplo.Infrastructure.DataAccess;
 
-namespace EvoNaplo.IntegrationTest
+namespace EvoNaplo.ApplicationCore.Domains.Users.IntegrationTest
 {
     [TestFixture]
     public class UserFacadeTest
@@ -35,7 +37,7 @@ namespace EvoNaplo.IntegrationTest
             //Setup database
             _evoNaploContext = TestDbContextHelper
                 .CreateInMemoryContext(databaseName)
-                .CreateRepository<User>()
+                .CreateRepository<UserEntity>()
                     .CreateDefaultUsers(_OriginalNumberOfAdmins, RoleType.Admin)
                     .CreateDefaultUsers(_OriginalNumberOfMentors, RoleType.Mentor)
                     .CreateDefaultUsers(_OriginalNumberOfStudent, RoleType.Student)
@@ -43,12 +45,12 @@ namespace EvoNaplo.IntegrationTest
 
             Mock<ILogger<AdminService>> mockAdminLogger = new Mock<ILogger<AdminService>>();
             Mock<ILogger<MentorService>> mockMentorLogger = new Mock<ILogger<MentorService>>();
-            AdminService adminService = new AdminService(TestDbContextHelper.InjectRepository<User>(), _userHelper, mockAdminLogger.Object);
-            MentorService mentorService = new MentorService(TestDbContextHelper.InjectRepository<User>(), _userHelper, mockMentorLogger.Object);
-            StudentService studentService = new StudentService(TestDbContextHelper.InjectRepository<User>(), _userHelper);
-            UserService userService = new UserService(TestDbContextHelper.InjectRepository<User>(), studentService, mentorService, adminService, _userHelper);
-            AuthService authService = new AuthService(userService);
-            _userFacade = new UserFacade(adminService, mentorService, studentService, userService, authService);
+
+            AdminService adminService = new AdminService(TestDbContextHelper.InjectRepository<UserEntity>(), _userHelper, mockAdminLogger.Object);
+            MentorService mentorService = new MentorService(TestDbContextHelper.InjectRepository<UserEntity>(), _userHelper, mockMentorLogger.Object);
+            StudentService studentService = new StudentService(TestDbContextHelper.InjectRepository<UserEntity>(), _userHelper);
+            UserService userService = new UserService(TestDbContextHelper.InjectRepository<UserEntity>(), studentService, mentorService, adminService, _userHelper);
+            _userFacade = new UserFacade(adminService, mentorService, studentService, userService);
         }
 
         [TearDown]
@@ -64,7 +66,7 @@ namespace EvoNaplo.IntegrationTest
             //Arrange
             SetUp(nameof(AddUserAsync_AddValidAdmin_AdminUserIsSuccessfullyAddedToDatabase));
             int expectedNumberOfAdmins = _OriginalNumberOfAdmins + 1;
-            User newAdmin = UserGenerator.CreateDefaultUser(RoleType.Admin);
+            UserEntity newAdmin = UserGenerator.CreateDefaultUser(RoleType.Admin);
             UserViewModel newAdminViewModel = _userHelper.ConvertUserToUserViewModel(newAdmin);
 
             //Act
@@ -81,7 +83,7 @@ namespace EvoNaplo.IntegrationTest
             //Arrange
             SetUp(nameof(AddUserAsync_AddValidMentor_MentorUserIsSuccessfullyAddedToDatabase));
             int expectedNumberOfMentors = _OriginalNumberOfMentors + 1;
-            User newMentor = UserGenerator.CreateDefaultUser(RoleType.Mentor);
+            UserEntity newMentor = UserGenerator.CreateDefaultUser(RoleType.Mentor);
             UserViewModel newMentorViewModel = _userHelper.ConvertUserToUserViewModel(newMentor);
 
             //Act

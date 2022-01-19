@@ -1,12 +1,18 @@
-using EvoNaplo.Common.DataAccessLayer;
-using EvoNaplo.Common.DomainFacades;
-using EvoNaplo.Common.Models.Entities;
-using EvoNaplo.Services;
-using EvoNaplo.UserDomain.Facades;
-using EvoNaplo.UserDomain.Models;
-using EvoNaplo.UserDomain.Services;
+using EvoNaplo.ApplicationCore.Domains.Auth.Facades;
+using EvoNaplo.ApplicationCore.Domains.Auth.Services;
+using EvoNaplo.ApplicationCore.Domains.Comments.Facades;
+using EvoNaplo.ApplicationCore.Domains.Comments.Services;
+using EvoNaplo.ApplicationCore.Domains.Projects.Facades;
+using EvoNaplo.ApplicationCore.Domains.Projects.Services;
+using EvoNaplo.ApplicationCore.Domains.Semesters.Facades;
+using EvoNaplo.ApplicationCore.Domains.Users.Facades;
+using EvoNaplo.ApplicationCore.Domains.Users.Services;
+using EvoNaplo.Infrastructure.DataAccess;
+using EvoNaplo.Infrastructure.DataAccess.Entities;
+using EvoNaplo.Infrastructure.DomainFacades;
+using EvoNaplo.Infrastructure.Helpers;
+using EvoNaplo.WebApp.Services;
 using Microsoft.EntityFrameworkCore;
-using System.Configuration;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -17,20 +23,30 @@ builder.Services.AddControllers();
 
 builder.Services.AddDbContext<EvoNaploContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("ConnectionString")));
 builder.Services.AddControllers();
-builder.Services.AddScoped<IRepository<User>, Repository<User>>();
-builder.Services.AddScoped<SemesterService>();
+builder.Services.AddScoped<IRepository<UserEntity>, Repository<UserEntity>>();
+builder.Services.AddScoped<IUserFacade, UserFacade>();
 builder.Services.AddScoped<MentorService>();
 builder.Services.AddScoped<StudentService>();
 builder.Services.AddScoped<AdminService>();
 builder.Services.AddScoped<UserService>();
-builder.Services.AddScoped<AuthService>();
-builder.Services.AddScoped<UserHelper>();
-builder.Services.AddScoped<IUserFacade, UserFacade>();
 
+builder.Services.AddScoped<IAuthFacade, AuthFacade>();
+builder.Services.AddScoped<AuthService>();
+
+builder.Services.AddScoped<IRepository<SemesterEntity>, Repository<SemesterEntity>>();
+builder.Services.AddScoped<ISemesterFacade, SemesterFacade>();
+builder.Services.AddScoped<SemesterService>();
+
+builder.Services.AddScoped<IRepository<ProjectEntity>, Repository<ProjectEntity>>();
+builder.Services.AddScoped<IProjectFacade, ProjectFacade>();
 builder.Services.AddScoped<ProjectService>();
-builder.Services.AddScoped<ProjectStudentService>();
-builder.Services.AddScoped<SessionService>();
+
+builder.Services.AddScoped<IRepository<CommentEntity>, Repository<CommentEntity>>();
+builder.Services.AddScoped<ICommentFacade, CommentFacade>();
 builder.Services.AddScoped<CommentService>();
+
+builder.Services.AddScoped<UserHelper>();
+builder.Services.AddScoped<ProjectStudentService>();
 builder.Services.AddScoped<AttendanceSheetService>();
 
 builder.Services.AddEndpointsApiExplorer();

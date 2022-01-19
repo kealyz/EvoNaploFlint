@@ -12,7 +12,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EvoNaplo.Backend\EvoNaplo.Backend.csproj" />
+    <ProjectReference Include="..\EvoNaplo.Infrastructure\EvoNaplo.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

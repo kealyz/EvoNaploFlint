@@ -22,7 +22,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Evonaplo.Common\EvoNaplo.Common.csproj" />
+    <Folder Include="Facades\" />
   </ItemGroup>
 
 </Project>

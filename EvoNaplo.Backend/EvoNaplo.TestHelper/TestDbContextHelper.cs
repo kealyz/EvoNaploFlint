@@ -1,8 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using EvoNaplo.Common.DataAccessLayer;
-using EvoNaplo.Common.Models.Entities;
+using EvoNaplo.Infrastructure.Models.Entities;
 using System.Collections.Generic;
 using System;
+using EvoNaplo.Infrastructure.DataAccess.Entities;
+using EvoNaplo.Infrastructure.DataAccess;
 
 namespace EvoNaplo.TestHelper
 {
@@ -28,7 +29,7 @@ namespace EvoNaplo.TestHelper
             return testRepository;
         }
 
-        public static IRepository<User> CreateDefaultUsers(this IRepository<User> userRepository, int numberOfUsers, RoleType roleTypes)
+        public static IRepository<UserEntity> CreateDefaultUsers(this IRepository<UserEntity> userRepository, int numberOfUsers, RoleType roleTypes)
         {
             for (int i = 0; i < numberOfUsers; i++)
             {

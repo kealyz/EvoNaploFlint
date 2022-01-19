@@ -1,8 +1,6 @@
-﻿using EvoNaplo.Common.Models.DTO;
-using EvoNaplo.Services;
-using Microsoft.AspNetCore.Http;
+﻿using EvoNaplo.Infrastructure.Models.DTO;
+using EvoNaplo.WebApp.Services;
 using Microsoft.AspNetCore.Mvc;
-using System.Threading.Tasks;
 
 namespace EvoNaplo.Controllers
 {

@@ -1,12 +1,12 @@
-﻿using EvoNaplo.Common.Models.DTO;
-using EvoNaplo.Common.Models.Entities;
-using EvoNaplo.Services;
+﻿using EvoNaplo.Infrastructure.Models.DTO;
+using EvoNaplo.Infrastructure.Models.Entities;
+using EvoNaplo.WebApp.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace EvoNaplo.Controllers
+namespace EvoNaplo.WebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]

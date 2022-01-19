@@ -1,11 +1,8 @@
-﻿using System.Collections.Generic;
-using System.Threading.Tasks;
-using EvoNaplo.Common.DomainFacades;
-using EvoNaplo.Common.Models.DTO;
-using EvoNaplo.Common.Models.ViewModels;
-using EvoNaplo.Common.Models.Entities;
-using EvoNaplo.UserDomain.Models;
-using Microsoft.AspNetCore.Http;
+﻿using EvoNaplo.ApplicationCore.Domains.Users.Models;
+using EvoNaplo.Infrastructure.DomainFacades;
+using EvoNaplo.Infrastructure.Models.DTO;
+using EvoNaplo.Infrastructure.Models.Entities;
+using EvoNaplo.Infrastructure.Models.ViewModels;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EvoNaplo.Controllers

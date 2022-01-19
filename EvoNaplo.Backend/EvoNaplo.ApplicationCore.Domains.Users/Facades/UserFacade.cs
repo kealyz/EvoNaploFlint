@@ -1,14 +1,11 @@
-﻿using EvoNaplo.Common.Models.DTO;
-using EvoNaplo.UserDomain.Services;
-using EvoNaplo.Common.DomainFacades;
-using EvoNaplo.UserDomain.Models;
-using System.IdentityModel.Tokens.Jwt;
-using EvoNaplo.Common.Exceptions;
-using System.Net;
-using EvoNaplo.Common.Models.Entities;
-using EvoNaplo.Common.Models.ViewModels;
+﻿using EvoNaplo.Infrastructure.Models.DTO;
+using EvoNaplo.ApplicationCore.Domains.Users.Services;
+using EvoNaplo.Infrastructure.DomainFacades;
+using EvoNaplo.ApplicationCore.Domains.Users.Models;
+using EvoNaplo.Infrastructure.Models.Entities;
+using EvoNaplo.Infrastructure.Models.ViewModels;
 
-namespace EvoNaplo.UserDomain.Facades
+namespace EvoNaplo.ApplicationCore.Domains.Users.Facades
 {
     public class UserFacade : IUserFacade
     {
@@ -16,34 +13,18 @@ namespace EvoNaplo.UserDomain.Facades
         private readonly MentorService _mentorService;
         private readonly StudentService _studentService;
         private readonly UserService _userService;
-        private readonly AuthService _authService;
 
-        public UserFacade(AdminService adminService, MentorService mentorService, StudentService studentService, UserService userService, AuthService authService)
+        public UserFacade(AdminService adminService, MentorService mentorService, StudentService studentService, UserService userService)
         {
             _adminService = adminService;
             _mentorService = mentorService;
             _studentService = studentService;
             _userService = userService;
-            _authService = authService;
         }
 
         public async Task AddUserAsync(UserViewModel user)
         {
-            switch (user.Role)
-            {
-                case RoleType.Student:
-                    await _studentService.AddStudentAsync(user);
-                    break;
-                case RoleType.Mentor:
-                    await _mentorService.AddMentorAsync(user);
-                    break;
-                case RoleType.Admin:
-                    await _adminService.AddAdminAsync(user);
-                    break;
-                default:
-                    //TODO: Better logging
-                    throw new NotImplementedException();
-            }
+            await _userService.AddNewStudentAsync(user);
         }
 
         public async Task<IEnumerable<UserDTO>> GetAllUserFromRoleTypeAsync(RoleType roleType)
@@ -77,11 +58,11 @@ namespace EvoNaplo.UserDomain.Facades
         {
             List<UserDTO> result = new();
 
-            result.AddRange(await this.GetAllUserFromRoleTypeAsync(RoleType.Admin));
-            result.AddRange(await this.GetAllUserFromRoleTypeAsync(RoleType.Mentor));
-            result.AddRange(await this.GetAllUserFromRoleTypeAsync(RoleType.Student));
+            result.AddRange(await GetAllUserFromRoleTypeAsync(RoleType.Admin));
+            result.AddRange(await GetAllUserFromRoleTypeAsync(RoleType.Mentor));
+            result.AddRange(await GetAllUserFromRoleTypeAsync(RoleType.Student));
 
-            return result.AsQueryable<UserDTO>();
+            return result.AsQueryable();
         }
 
         public UserDTO GetUserById(int userId)
@@ -105,28 +86,9 @@ namespace EvoNaplo.UserDomain.Facades
             await _userService.EditUserRole(user, newRole);
         }
 
-        public string Login(LoginViewModel loginDTO)
+        public UserAuth GetUserByEmail(string email)
         {
-            return _authService.Login(loginDTO);
-        }
-
-        public UserDTO GetUserByJwt(string jwt)
-        {
-            UserDTO user;
-
-            try
-            {
-                JwtSecurityToken token = _authService.Verify(jwt);
-                int userId = int.Parse(token.Issuer);
-                user = _userService.GetUserById(userId);
-            }
-            //TODO: Use specific exception
-            catch (Exception ex)
-            {
-                throw new ServiceException(HttpStatusCode.Unauthorized, ex.Message);
-            }
-
-            return user;
+            return _userService.GetUserByEmail(email);
         }
     }
 }

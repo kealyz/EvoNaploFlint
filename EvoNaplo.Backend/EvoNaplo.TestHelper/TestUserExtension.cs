@@ -1,11 +1,12 @@
-﻿using EvoNaplo.Common.Models.Entities;
-using EvoNaplo.UserDomain.Models;
+﻿using EvoNaplo.ApplicationCore.Domains.Users.Models;
+using EvoNaplo.Infrastructure.Helpers;
+using EvoNaplo.Infrastructure.DataAccess.Entities;
 
 namespace EvoNaplo.TestHelper
 {
     public static class TestUserExtension
     {
-        public static UserViewModel ConvertUserToUserViewModel(this UserHelper userHelper, User user)
+        public static UserViewModel ConvertUserToUserViewModel(this UserHelper userHelper, UserEntity user)
         {
             return new UserViewModel
             {

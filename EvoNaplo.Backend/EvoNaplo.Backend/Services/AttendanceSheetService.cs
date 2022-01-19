@@ -1,10 +1,10 @@
-﻿using EvoNaplo.Common.DataAccessLayer;
-using EvoNaplo.Common.Models.DTO;
-using EvoNaplo.Common.Models.Entities;
+﻿using EvoNaplo.Infrastructure.DataAccess;
+using EvoNaplo.Infrastructure.Models.DTO;
+using EvoNaplo.Infrastructure.Models.Entities;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace EvoNaplo.Services
+namespace EvoNaplo.WebApp.Services
 {
     public class AttendanceSheetService
     {

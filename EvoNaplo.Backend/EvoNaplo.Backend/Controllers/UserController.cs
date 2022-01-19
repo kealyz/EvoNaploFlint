@@ -1,14 +1,14 @@
-﻿using EvoNaplo.Common.DomainFacades;
-using EvoNaplo.Common.Models.DTO;
-using EvoNaplo.Common.Models.Entities;
-using EvoNaplo.UserDomain.Facades;
-using EvoNaplo.UserDomain.Models;
+﻿using EvoNaplo.Infrastructure.DomainFacades;
+using EvoNaplo.Infrastructure.Models.DTO;
+using EvoNaplo.Infrastructure.Models.Entities;
+using EvoNaplo.ApplicationCore.Domains.Users.Facades;
+using EvoNaplo.ApplicationCore.Domains.Users.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 
-namespace EvoNaplo.Controllers
+namespace EvoNaplo.WebApp.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -37,12 +37,6 @@ namespace EvoNaplo.Controllers
         public async Task<IEnumerable<UserDTO>> GetAdminAsync()
         {
             return await _userFacade.GetAllUserFromRoleTypeAsync(RoleType.Admin);
-        }
-
-        [HttpGet("GetUserById")]
-        public UserDTO GetUserById(int id)
-        {
-            return _userFacade.GetUser(id);
         }
 
         [HttpGet("GetUserToEditById")]
