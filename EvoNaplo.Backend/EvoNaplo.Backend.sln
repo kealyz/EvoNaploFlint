@@ -1,0 +1,55 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32014.148
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.Backend", "EvoNaplo.Backend\EvoNaplo.Backend.csproj", "{384FD3EF-44B5-46EE-B122-F06484A0D689}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.Common", "Evonaplo.Common\EvoNaplo.Common.csproj", "{DD23271C-5992-45BE-B4AC-F6ADDC308AD0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.Common.UnitTest", "EvoNaplo.Common.UnitTest\EvoNaplo.Common.UnitTest.csproj", "{721603FD-64DF-4611-AE68-5732452EF27D}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.TestHelper", "EvoNaplo.TestHelper\EvoNaplo.TestHelper.csproj", "{82270C25-E754-4970-B463-F7F4AC8118D9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.UserDomain", "EvoNaplo.UserDomain\EvoNaplo.UserDomain.csproj", "{9A7D24B4-0A7A-4405-BE8D-2C431BEFDD02}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.UserDomain.IntegrationTest", "EvoNaplo.UserDomain.IntegrationTest\EvoNaplo.UserDomain.IntegrationTest.csproj", "{866AFDF3-632D-4600-A846-E67CF12BB58D}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{384FD3EF-44B5-46EE-B122-F06484A0D689}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{384FD3EF-44B5-46EE-B122-F06484A0D689}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{384FD3EF-44B5-46EE-B122-F06484A0D689}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{384FD3EF-44B5-46EE-B122-F06484A0D689}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DD23271C-5992-45BE-B4AC-F6ADDC308AD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DD23271C-5992-45BE-B4AC-F6ADDC308AD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DD23271C-5992-45BE-B4AC-F6ADDC308AD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DD23271C-5992-45BE-B4AC-F6ADDC308AD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{721603FD-64DF-4611-AE68-5732452EF27D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{721603FD-64DF-4611-AE68-5732452EF27D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{721603FD-64DF-4611-AE68-5732452EF27D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{721603FD-64DF-4611-AE68-5732452EF27D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{82270C25-E754-4970-B463-F7F4AC8118D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{82270C25-E754-4970-B463-F7F4AC8118D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{82270C25-E754-4970-B463-F7F4AC8118D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{82270C25-E754-4970-B463-F7F4AC8118D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9A7D24B4-0A7A-4405-BE8D-2C431BEFDD02}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9A7D24B4-0A7A-4405-BE8D-2C431BEFDD02}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9A7D24B4-0A7A-4405-BE8D-2C431BEFDD02}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9A7D24B4-0A7A-4405-BE8D-2C431BEFDD02}.Release|Any CPU.Build.0 = Release|Any CPU
+		{866AFDF3-632D-4600-A846-E67CF12BB58D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{866AFDF3-632D-4600-A846-E67CF12BB58D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{866AFDF3-632D-4600-A846-E67CF12BB58D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{866AFDF3-632D-4600-A846-E67CF12BB58D}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {E5AEA213-DB02-4DB2-A01D-0CCA01D4DAB2}
+	EndGlobalSection
+EndGlobal
