@@ -7,21 +7,19 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.Backend", "EvoNapl
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.TestHelper", "EvoNaplo.TestHelper\EvoNaplo.TestHelper.csproj", "{82270C25-E754-4970-B463-F7F4AC8118D9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.ApplicationCore.Domains.Users.IntegrationTest", "EvoNaplo.UserDomain.IntegrationTest\EvoNaplo.ApplicationCore.Domains.Users.IntegrationTest.csproj", "{866AFDF3-632D-4600-A846-E67CF12BB58D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.ApplicationCore.Domains.Users", "EvoNaplo.ApplicationCore.Domains.Users\EvoNaplo.ApplicationCore.Domains.Users.csproj", "{80B0CA60-D6C5-4D06-8C97-75FD01306A8F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvoNaplo.ApplicationCore.Domains.Users", "EvoNaplo.ApplicationCore.Domains.Users\EvoNaplo.ApplicationCore.Domains.Users.csproj", "{80B0CA60-D6C5-4D06-8C97-75FD01306A8F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.ApplicationCore.Domains.Semesters", "EvoNaplo.ApplicationCore.Domains.Semesters\EvoNaplo.ApplicationCore.Domains.Semesters.csproj", "{853DF7F8-2741-4ED3-A9EC-1E4CC231676C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvoNaplo.ApplicationCore.Domains.Semesters", "EvoNaplo.ApplicationCore.Domains.Semesters\EvoNaplo.ApplicationCore.Domains.Semesters.csproj", "{853DF7F8-2741-4ED3-A9EC-1E4CC231676C}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.ApplicationCore.Domains.Projects", "EvoNaplo.ApplicationCore.Domains.Projects\EvoNaplo.ApplicationCore.Domains.Projects.csproj", "{3C95C699-9940-481B-AC57-B3F1F3DFAFC5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvoNaplo.ApplicationCore.Domains.Projects", "EvoNaplo.ApplicationCore.Domains.Projects\EvoNaplo.ApplicationCore.Domains.Projects.csproj", "{3C95C699-9940-481B-AC57-B3F1F3DFAFC5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.ApplicationCore.Domains.Comments", "EvoNaplo.ApplicationCore.Domains.Comments\EvoNaplo.ApplicationCore.Domains.Comments.csproj", "{6FD514AD-E2F3-4E1D-B8B8-4E94C96E66C2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvoNaplo.ApplicationCore.Domains.Comments", "EvoNaplo.ApplicationCore.Domains.Comments\EvoNaplo.ApplicationCore.Domains.Comments.csproj", "{6FD514AD-E2F3-4E1D-B8B8-4E94C96E66C2}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.ApplicationCore.Domains.Auth", "EvoNaplo.ApplicationCore.Domains.Auth\EvoNaplo.ApplicationCore.Domains.Auth.csproj", "{AFC26FEA-D435-4F7C-8807-6659B44BD869}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvoNaplo.ApplicationCore.Domains.Auth", "EvoNaplo.ApplicationCore.Domains.Auth\EvoNaplo.ApplicationCore.Domains.Auth.csproj", "{AFC26FEA-D435-4F7C-8807-6659B44BD869}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.Infrastructure", "EvoNaplo.Infrastructure\EvoNaplo.Infrastructure.csproj", "{9F5E88D8-071C-4C1B-AF7C-8DB37B7EF3BD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvoNaplo.Infrastructure", "EvoNaplo.Infrastructure\EvoNaplo.Infrastructure.csproj", "{9F5E88D8-071C-4C1B-AF7C-8DB37B7EF3BD}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EvoNaplo.Infrastructure.UnitTest", "EvoNaplo.Infrastructure.UnitTest\EvoNaplo.Infrastructure.UnitTest.csproj", "{48B60035-8C3D-40D3-A874-2E745447327E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "EvoNaplo.Infrastructure.UnitTest", "EvoNaplo.Infrastructure.UnitTest\EvoNaplo.Infrastructure.UnitTest.csproj", "{48B60035-8C3D-40D3-A874-2E745447327E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -37,10 +35,6 @@ Global
 		{82270C25-E754-4970-B463-F7F4AC8118D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{82270C25-E754-4970-B463-F7F4AC8118D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{82270C25-E754-4970-B463-F7F4AC8118D9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{866AFDF3-632D-4600-A846-E67CF12BB58D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{866AFDF3-632D-4600-A846-E67CF12BB58D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{866AFDF3-632D-4600-A846-E67CF12BB58D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{866AFDF3-632D-4600-A846-E67CF12BB58D}.Release|Any CPU.Build.0 = Release|Any CPU
 		{80B0CA60-D6C5-4D06-8C97-75FD01306A8F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{80B0CA60-D6C5-4D06-8C97-75FD01306A8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{80B0CA60-D6C5-4D06-8C97-75FD01306A8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
